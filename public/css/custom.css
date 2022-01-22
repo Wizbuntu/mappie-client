@@ -1,0 +1,8 @@
+.sidebar {
+    max-width: 200px !important;
+    min-width: 180px !important;
+}
+
+.pure-modal .panel-footer {
+    padding: 12px 15px 12px 15px !important;
+}

@@ -1,3 +1,10 @@
 module.exports = {
-  reactStrictMode: true,
+    reactStrictMode: true,
+    eslint: {
+        ignoreDuringBuilds: true
+    },
+    env: {
+        API_ROOT: 'http://localhost:7000/v1/api'
+    },
+
 }
