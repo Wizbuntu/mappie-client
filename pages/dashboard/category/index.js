@@ -177,6 +177,7 @@ const Category = () => {
     const handleSubmit = async () => {
         try {
 
+
             // upate addCategoryLoading state 
             setAddCategoryLoading(true)
 
@@ -186,6 +187,12 @@ const Category = () => {
 
             // validate name field
             const nameError = _formSchema.find((schema) => !schema.name)
+
+            // validate name field if it has whitespace
+            const nameErrorSpace = _formSchema.find((schema) => /\s/g.test(schema.name))
+
+            // validate name field for special characters
+            const nameSpecialCharacters = _formSchema.find((schema) => /[-’/`~!#*$@_%+=.,^&(){}[\]|;:”<>?\\]/g.test(schema.name))
 
             // validate label field
             const labelError = _formSchema.find((schema) => !schema.label)
@@ -218,6 +225,16 @@ const Category = () => {
                 // update addCategoryLoading state
                 setAddCategoryLoading(false)
                 return toast.error("Field name is required")
+            }
+
+            if(nameErrorSpace) {
+                setAddCategoryLoading(false)
+                return toast.error("Field name should not contain space")
+            }
+
+            if(nameSpecialCharacters) {
+                setAddCategoryLoading(false)
+                return toast.error("Field name should not contain any special characters", {style: {maxWidth: 500}})
             }
 
             // show labelError
