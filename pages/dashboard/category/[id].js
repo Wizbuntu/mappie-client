@@ -328,6 +328,7 @@ const CategoryDetails = () => {
                                                                         <option value="">Select Type</option>
                                                                         <option value="text">text</option>
                                                                         <option value="number">number</option>
+                                                                        <option value="link">link</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
